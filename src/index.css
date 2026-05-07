@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto+Mono:wght@300;400;500&display=swap');
+
+:root {
+  --neon-blue: #00ffff;
+  --neon-pink: #ff00dd;
+  --bg-dark: #0a0a0a;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #050505;
+  /* Deep Black */
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  overflow-x: hidden;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Cyber Grid Background */
+  background-image:
+    linear-gradient(rgba(0, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* CRT Scanline Effect */
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* HOME PAGE LAYOUT */
+.home-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #020202;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: calc(100vh - 120px);
+  padding-top: 80px;
+  gap: 40px;
+  padding: 40px 60px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.home-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  background: rgba(0, 20, 40, 0.3);
+  border-radius: 20px;
+  position: relative;
+  z-index: 10;
+  box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 80px 20px 60px 20px;
+    /* Adjust padding for mobile */
+    gap: 20px;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .home-container {
+    overflow-y: auto;
+    /* Allow scrolling on mobile */
+  }
+}
